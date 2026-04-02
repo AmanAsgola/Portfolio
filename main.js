@@ -19,7 +19,6 @@ function typeWriter(){
   }
 }
 if(headlineTyped) typeWriter();
-
 // Interactive About Section Typing Animation
 const aboutRoleTyped = document.getElementById('about-role-typed');
 const aboutRoleStrings = [
@@ -41,7 +40,6 @@ function aboutType(){
   }
 }
 if(aboutRoleTyped) aboutType();
-
 // Section fade-in on scroll
 function fadeInSections(){
   const fadeEls = document.querySelectorAll('.fadein');
@@ -53,7 +51,6 @@ function fadeInSections(){
 }
 document.addEventListener('scroll', fadeInSections);
 window.addEventListener('DOMContentLoaded', fadeInSections);
-
 // Active nav highlight as you scroll
 function updateActiveNav(){
   let navLinks = document.querySelectorAll('#main-nav a, #mobile-nav a');
@@ -75,7 +72,6 @@ function updateActiveNav(){
 }
 window.addEventListener('scroll', updateActiveNav);
 window.addEventListener('DOMContentLoaded', updateActiveNav);
-
 // Mobile menu
 const burger = document.getElementById('burger');
 const mobileNav = document.getElementById('mobile-nav');
@@ -91,7 +87,6 @@ if(burger && mobileNav){
     }
   };
 }
-
 // Dark mode toggle
 const darkToggle = document.getElementById('dark-mode-toggle');
 function setTheme(dark) {
@@ -107,3 +102,32 @@ if(darkToggle){
     else if(window.matchMedia('(prefers-color-scheme: dark)').matches) setTheme(true);
   });
 }
+// ==== Projects, Experience, Contact animated appear ====
+// Helper for on-scroll reveal, with optional staggering
+function setVisibleOnScroll(elements, stagger = 0.13) {
+  const obs = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry, idx) => {
+      if (entry.isIntersecting) {
+        if (stagger > 0) {
+          entry.target.style.setProperty('--delay', `${idx * stagger}s`);
+          entry.target.classList.add('stagger');
+        }
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.18 });
+  elements.forEach(el => obs.observe(el));
+}
+// Animate-in for Projects, Experience, Contact
+document.addEventListener('DOMContentLoaded', function() {
+  setVisibleOnScroll(document.querySelectorAll('.project-card'), 0.08);
+  setVisibleOnScroll(document.querySelectorAll('.experience-list .job-card'), 0.12);
+  setVisibleOnScroll(document.querySelectorAll('.contact-list li'), 0.08);
+});
+document.addEventListener('DOMContentLoaded', function() {
+  let exCards = document.querySelectorAll('section#experience .job-card');
+  if(exCards.length && !document.querySelector('.experience-list')) {
+    setVisibleOnScroll(exCards, 0.13);
+  }
+});
