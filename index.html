@@ -1,218 +1,148 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>Aman Asgola - Portfolio</title>
-  <meta name="description" content="Aman Asgola AI/ML, Data, and Engineering Portfolio"/>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.1/dist/tailwind.min.css" rel="stylesheet">
-  <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
-  <style>
-    html { scroll-behavior: smooth; }
-    .fade-in { opacity: 0; transform: translateY(42px); transition: all 0.7s cubic-bezier(.4,0,.2,1); }
-    .fade-in.visible { opacity: 1; transform: none; }
-    .glow { filter: drop-shadow(0 2px 12px rgba(72,120,255,0.15)); }
-    /* Floating toggle */
-    .theme-toggle { transition: background 0.3s; }
-    .badge-animate { transition: transform 0.2s cubic-bezier(.56,1.74,.4,.94); }
-    .badge-animate:hover { transform: scale(1.17) rotate(-2deg); }
-    .backtotop { opacity:0.7; transition: opacity 0.2s, background 0.2s;}
-    .backtotop:hover { opacity:1;background:rgb(60,130,246);}
-  </style>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Aman Asgola &mdash; Portfolio</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-gradient-to-br from-blue-50 dark:from-gray-900 via-gray-50 dark:via-gray-950 to-blue-100 dark:to-gray-800 text-gray-800 dark:text-gray-200 selection:bg-blue-300 selection:text-black">
-
-  <!-- Dark mode toggle floating button -->
-  <button id="darkToggle" title="Toggle dark mode" class="theme-toggle fixed z-50 right-6 bottom-6 md:top-6 md:bottom-auto w-12 h-12 flex items-center justify-center rounded-full bg-white dark:bg-gray-900 border-2 border-blue-300 dark:border-gray-700 shadow-lg text-xl hover:bg-blue-50 dark:hover:bg-gray-800 transition cursor-pointer">
-    <span id="themeIcon" class="transition">🌙</span>
-  </button>
-
-  <nav class="fixed top-0 w-full z-30 bg-white/90 dark:bg-black/70 backdrop-blur border-b border-gray-200 dark:border-gray-800 px-4 py-3 flex justify-between items-center">
-    <span class="font-extrabold text-xl text-blue-800 dark:text-blue-300 tracking-wide">Aman Asgola</span>
-    <div class="flex gap-4 text-lg">
-      <a href="#about" class="hover:text-blue-600 dark:hover:text-blue-400 font-semibold transition">About</a>
-      <a href="#skills" class="hover:text-blue-600 dark:hover:text-blue-400 font-semibold transition">Skills</a>
-      <a href="#projects" class="hover:text-blue-600 dark:hover:text-blue-400 font-semibold transition">Projects</a>
-      <a href="#experience" class="hover:text-blue-600 dark:hover:text-blue-400 font-semibold transition">Experience</a>
-      <a href="#contact" class="hover:text-blue-600 dark:hover:text-blue-400 font-semibold transition">Contact</a>
+<body>
+  <aside id="sidebar">
+    <div class="avatar-wrap">
+      <img src="avatar.png" alt="Aman Asgola" class="avatar" onerror="this.style.display='none'"/>
+      <h1>Aman Asgola</h1>
+      <div class="typed-headline">
+        <span id="headline-typed"></span>
+        <span class="cursor">&nbsp;</span>
+      </div>
     </div>
-    <a href="Aman_Asgola_Resume.pdf" class="ml-4 px-3 py-1 rounded bg-gradient-to-r from-blue-600 to-cyan-500 text-white hover:from-blue-700 hover:to-cyan-700 font-semibold shadow transition" target="_blank">Resume</a>
-  </nav>
-  <div class="h-20"></div>
-
-  <!-- HERO -->
-  <section id="about" class="max-w-3xl mx-auto py-16 fade-in">
-    <div class="text-center">
-      <img src="avatar.png" alt="Aman Asgola headshot" class="mx-auto mb-4 rounded-full border-4 border-blue-200 dark:border-blue-600 shadow-lg w-32 h-32 object-cover animate-bounce glow" onerror="this.style.display='none'" />
-      <h1 class="text-3xl md:text-5xl font-black mb-4 bg-gradient-to-br from-blue-600 via-cyan-400 to-fuchsia-600 dark:from-blue-400 dark:via-cyan-300 dark:to-fuchsia-500 text-transparent bg-clip-text tracking-tight glow" id="typed"></h1>
-      <p class="text-lg md:text-xl max-w-2xl mx-auto text-gray-700 dark:text-gray-300 pt-2">
-        Results-driven <b>AI/ML & Data Engineer</b> (M.Sc. AI, BTU) skilled at architecting ETL + ML pipelines at scale, reducing latency, and fine-tuning cutting-edge models for NLP. Passionate about efficient systems, measurable business impact, and algorithmic learning (<a href="https://leetcode.com/u/Demonfist/" class="text-blue-600 dark:text-cyan-400 underline" target="_blank">Demonfist@LeetCode</a>).
+    <nav id="main-nav">
+      <ul>
+        <li><a href="#about" class="active">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li class="resume-link"><a href="Aman_Asgola_Resume.pdf" target="_blank">Resume</a></li>
+      </ul>
+      <button id="dark-mode-toggle" title="Toggle dark mode">🌓</button>
+      <button id="burger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </nav>
+  </aside>
+  <div id="mobile-nav">
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li class="resume-link"><a href="Aman_Asgola_Resume.pdf" target="_blank">Resume</a></li>
+    </ul>
+  </div>
+  <main>
+    <section id="about" class="section fadein">
+      <h2>About Me</h2>
+      <p>
+        Results-driven <b>AI/ML and Data Engineer</b> (M.Sc. Artificial Intelligence, BTU) with experience architecting ETL pipelines processing >1TB daily and optimizing real-time latency for production ML.<br>
+        Skilled at modular validation layers, automated monitoring, and fine-tuning Transformer-centric NLP models. Algorithmic problem-solver (<a href="https://leetcode.com/u/Demonfist/" target="_blank">Demonfist@LeetCode</a>), passionate about the intersection of robust data architectures and advanced analytics.
       </p>
-    </div>
-  </section>
+    </section>
 
-  <!-- SKILLS -->
-  <section id="skills" class="max-w-4xl mx-auto py-12 fade-in">
-    <h2 class="text-2xl font-extrabold mb-8 text-center text-gray-800 dark:text-blue-200 tracking-tight">Technologies & Skills</h2>
-    <div class="flex flex-wrap justify-center gap-3 md:gap-6 text-base md:text-lg">
-      <span class="badge-animate px-4 py-2 rounded bg-gradient-to-r from-blue-100 via-cyan-100 to-indigo-100 dark:from-blue-900 dark:via-blue-800 dark:to-indigo-900 text-blue-900 dark:text-blue-200 font-bold shadow">Python</span>
-      <span class="badge-animate px-4 py-2 rounded bg-gradient-to-r from-pink-100 to-fuchsia-200 dark:from-fuchsia-900 dark:to-pink-900 text-fuchsia-900 dark:text-pink-200 font-bold shadow">FastAPI</span>
-      <span class="badge-animate px-4 py-2 rounded bg-gradient-to-r from-violet-100 to-purple-200 dark:from-violet-900 dark:to-purple-900 text-violet-900 dark:text-purple-200 font-bold shadow">PyTorch</span>
-      <span class="badge-animate px-4 py-2 rounded bg-gradient-to-r from-cyan-100 to-blue-200 dark:from-cyan-900 dark:to-blue-900 text-cyan-900 dark:text-cyan-200 font-bold shadow">MLflow</span>
-      <span class="badge-animate px-4 py-2 rounded bg-gradient-to-r from-green-100 to-teal-200 dark:from-green-900 dark:to-teal-900 text-green-900 dark:text-teal-200 font-bold shadow">Docker</span>
-      <span class="badge-animate px-4 py-2 rounded bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800 text-gray-700 dark:text-gray-300 font-bold shadow">Git</span>
-      <span class="badge-animate px-4 py-2 rounded bg-gradient-to-r from-yellow-100 to-amber-200 dark:from-yellow-900 dark:to-amber-900 text-yellow-900 dark:text-amber-200 font-bold shadow">SQL</span>
-      <span class="badge-animate px-4 py-2 rounded bg-gradient-to-r from-blue-100 to-blue-300 dark:from-blue-900 dark:to-blue-700 text-blue-700 dark:text-blue-200 font-bold shadow">Microsoft Azure</span>
-      <span class="badge-animate px-4 py-2 rounded bg-gradient-to-r from-cyan-100 to-blue-100 dark:from-cyan-900 dark:to-blue-900 text-cyan-700 dark:text-cyan-300 font-bold shadow">REST APIs</span>
-      <span class="badge-animate px-4 py-2 rounded bg-gradient-to-r from-green-100 to-blue-200 dark:from-blue-900 dark:to-green-900 text-green-700 dark:text-green-200 font-bold shadow">Transformers</span>
-      <span class="badge-animate px-4 py-2 rounded bg-gradient-to-r from-purple-100 to-fuchsia-200 dark:from-purple-900 dark:to-fuchsia-900 text-purple-600 dark:text-fuchsia-200 font-bold shadow">NLP</span>
-      <span class="badge-animate px-4 py-2 rounded bg-gradient-to-r from-gray-100 to-blue-100 dark:from-gray-800 dark:to-blue-900 text-blue-600 dark:text-blue-200 font-bold shadow">Model Evaluation</span>
-      <span class="badge-animate px-4 py-2 rounded bg-gradient-to-r from-pink-100 to-purple-100 dark:from-pink-900 dark:to-purple-900 text-pink-900 dark:text-pink-200 font-bold shadow">Anomaly Detection</span>
-      <span class="badge-animate px-4 py-2 rounded bg-gradient-to-r from-yellow-100 to-orange-100 dark:from-yellow-900 dark:to-orange-900 text-yellow-900 dark:text-orange-200 font-bold shadow">PySpark</span>
-      <span class="badge-animate px-4 py-2 rounded bg-gradient-to-r from-orange-100 to-yellow-100 dark:from-orange-900 dark:to-yellow-900 text-orange-900 dark:text-yellow-200 font-bold shadow">Databricks</span>
-      <span class="badge-animate px-4 py-2 rounded bg-gradient-to-r from-yellow-100 to-amber-200 dark:from-yellow-900 dark:to-amber-900 text-yellow-900 dark:text-amber-200 font-bold shadow">ETL/ELT</span>
-      <span class="badge-animate px-4 py-2 rounded bg-gradient-to-r from-amber-100 to-amber-200 dark:from-amber-900 dark:to-amber-800 text-amber-900 dark:text-amber-200 font-bold shadow">Data Modeling</span>
-      <span class="badge-animate px-4 py-2 rounded bg-gradient-to-r from-rose-100 to-pink-100 dark:from-rose-900 dark:to-pink-900 text-rose-900 dark:text-pink-200 font-bold shadow">Feature Engineering</span>
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section id="projects" class="max-w-4xl mx-auto py-12 fade-in">
-    <h2 class="text-2xl font-extrabold mb-8 text-center">Projects</h2>
-    <div class="grid md:grid-cols-2 gap-8">
-      <div class="rounded-xl bg-white dark:bg-black/70 shadow-xl border border-gray-100 dark:border-gray-800 p-6 hover:-translate-y-2 hover:shadow-2xl transition-all duration-300">
-        <h3 class="font-bold text-lg mb-2 text-blue-700 dark:text-blue-300">Transformer-Based Linguistic Classifier</h3>
-        <p class="text-gray-700 dark:text-gray-300">
-          Fine-tuned BERT NLP model distinguishing monologic/dialogic political discourse—15% accuracy gain over baseline. Gold-standard custom data, robust training & reproducibility.
-        </p>
-        <a target="_blank" href="https://ie-seminar.web.app/index.html" class="inline-block mt-4 px-5 py-2 bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-700 text-white rounded-lg shadow hover:shadow-lg font-semibold transition">View Demo</a>
-      </div>
-      <div class="rounded-xl bg-white dark:bg-black/70 shadow-xl border border-gray-100 dark:border-gray-800 p-6 hover:-translate-y-2 hover:shadow-2xl transition-all duration-300">
-        <h3 class="font-bold text-lg mb-2 text-blue-700 dark:text-blue-300">Delivery Order Price Calculator API</h3>
-        <p class="text-gray-700 dark:text-gray-300">
-          High-perf FastAPI backend with Haversine for logistics pricing. Dockerized, tiered distance logic, and instant calc accuracy for thousands of venues.
-        </p>
-        <a target="_blank" href="https://github.com/AmanAsgola/Delivery-Order-Price-Calculator-API-DOPC-" class="inline-block mt-4 px-5 py-2 bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-700 text-white rounded-lg shadow hover:shadow-lg font-semibold transition">View Code</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- EXPERIENCE -->
-  <section id="experience" class="max-w-4xl mx-auto py-12 fade-in">
-    <h2 class="text-2xl font-extrabold mb-8 text-center">Experience</h2>
-    <div class="flex flex-col gap-7">
-      <div class="bg-white dark:bg-gray-900 rounded-xl shadow-lg border border-gray-100 dark:border-gray-800 p-6">
-        <h3 class="text-lg font-bold text-blue-800 dark:text-blue-300">Nova Telecom LLC <span class="font-normal text-gray-600 dark:text-gray-300">(Data Analyst Intern, Remote, USA)</span></h3>
-        <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">09/2025 – 10/2025</p>
-        <ul class="list-disc pl-6 text-gray-700 dark:text-gray-300 space-y-1">
-          <li>Optimised NumPy ops, cutting real-time pipeline latency by 25%.</li>
-          <li>Validation layer reduction for manual cleanup (↓20%).</li>
-          <li>Error reduction in prod using Z-Score/IQR anomaly detection.</li>
+    <section id="skills" class="section fadein">
+      <h2>Technologies & Skills</h2>
+      <div class="skill-group">
+        <h3>Frameworks & Languages</h3>
+        <ul class="skills">
+          <li>Python</li>
+          <li>PyTorch</li>
+          <li>FastAPI</li>
+          <li>Docker</li>
+          <li>MLflow</li>
+          <li>SQL</li>
+          <li>Git</li>
+          <li>Microsoft Azure</li>
+          <li>REST APIs</li>
         </ul>
       </div>
-      <div class="bg-white dark:bg-gray-900 rounded-xl shadow-lg border border-gray-100 dark:border-gray-800 p-6">
-        <h3 class="text-lg font-bold text-blue-800 dark:text-blue-300">Cognizant Technology Solutions <span class="font-normal text-gray-600 dark:text-gray-300">(Programmer Analyst, Pune, India)</span></h3>
-        <ul class="list-disc pl-6 text-gray-700 dark:text-gray-300 space-y-1">
-          <li>Built/maintained Databricks ETL pipelines (1TB+ daily).</li>
-          <li>Reduced system failures by 18% with Python monitoring+alerting.</li>
-          <li>Rigorous SQL validation: 30% less troubleshooting.</li>
+      <div class="skill-group">
+        <h3>Machine Learning</h3>
+        <ul class="skills">
+          <li>Transformers</li>
+          <li>NLP</li>
+          <li>Model Evaluation</li>
+          <li>Anomaly Detection</li>
         </ul>
       </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact" class="max-w-4xl mx-auto py-12 fade-in">
-    <h2 class="text-2xl font-extrabold mb-8 text-center">Contact</h2>
-    <div class="flex flex-col md:flex-row md:justify-center md:gap-16 text-gray-800 dark:text-blue-200 text-lg">
-      <div>
-        <ul class="space-y-2">
-          <li><strong>Email:</strong> <a href="mailto:aman.code001@gmail.com" class="text-blue-600 dark:text-cyan-400 underline hover:text-blue-800">aman.code001@gmail.com</a></li>
-          <li><strong>Phone:</strong> +49 176 45626923</li>
-          <li><strong>Location:</strong> Berlin, Germany</li>
+      <div class="skill-group">
+        <h3>Data Engineering & Processing</h3>
+        <ul class="skills">
+          <li>PySpark</li>
+          <li>Databricks</li>
+          <li>ETL/ELT</li>
+          <li>Data Modeling</li>
+          <li>Feature Engineering</li>
         </ul>
       </div>
-      <div>
-        <ul class="space-y-2 mt-6 md:mt-0">
-          <li><strong>GitHub:</strong> <a href="https://github.com/AmanAsgola" class="text-blue-600 dark:text-cyan-400 underline hover:text-blue-800" target="_blank">AmanAsgola</a></li>
-          <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/amanasgola" class="text-blue-600 dark:text-cyan-400 underline hover:text-blue-800" target="_blank">in/amanasgola</a></li>
-          <li><strong>LeetCode:</strong> <a href="https://leetcode.com/u/Demonfist/" class="text-blue-600 dark:text-cyan-400 underline hover:text-blue-800" target="_blank">Demonfist</a></li>
-          <li><strong>Resume:</strong> <a href="Aman_Asgola_Resume.pdf" class="text-blue-600 dark:text-cyan-400 underline hover:text-blue-800" target="_blank">PDF Download</a></li>
+    </section>
+
+    <section id="projects" class="section fadein">
+      <h2>Projects</h2>
+      <div class="project-card">
+        <h3>Transformer-Based Linguistic Classifier</h3>
+        <ul>
+          <li>Fine-tuned BERT to classify monologic vs dialogic discourse &mdash; +15% accuracy over baseline.</li>
+          <li>Built and cleaned gold-standard dataset, removed superficial cues for honest learning.</li>
+          <li>Sliding-window training, robust hyperparameter tuning, reproducibility.</li>
+        </ul>
+        <a href="https://ie-seminar.web.app/index.html" target="_blank" class="btn">View Demo</a>
+      </div>
+      <div class="project-card">
+        <h3>Delivery Order Price Calculator API</h3>
+        <ul>
+          <li>High-performance FastAPI backend using Haversine formula for real-time logistics pricing.</li>
+          <li>Containerized with Docker for scalable, reliable deployment; 0% environment-related fails.</li>
+          <li>Tiered distance pricing, surcharges, and deterministic calc logic.</li>
+        </ul>
+        <a href="https://github.com/AmanAsgola/Delivery-Order-Price-Calculator-API-DOPC-" target="_blank" class="btn">GitHub Repo</a>
+      </div>
+    </section>
+
+    <section id="experience" class="section fadein">
+      <h2>Experience</h2>
+      <div class="job-card">
+        <h3>Nova Telecom LLC &mdash; Data Analyst Intern <span>(09/2025 – 10/2025, Remote, USA)</span></h3>
+        <ul>
+          <li>Optimized vectorized NumPy for 25% faster telecom data pipelines.</li>
+          <li>Architected validation layers, reduced manual cleanup by 20%.</li>
+          <li>Deployed automated outlier detection (ZScore/IQR) for error reduction.</li>
         </ul>
       </div>
-    </div>
-  </section>
+      <div class="job-card">
+        <h3>Cognizant Technology Solutions &mdash; Programmer Analyst <span>(Pune, India)</span></h3>
+        <ul>
+          <li>Built and maintained Databricks ETL processing 1TB+ daily for production ML.</li>
+          <li>Automated Python monitoring &amp; SQL validation, reducing downtime and troubleshooting.</li>
+          <li>Enabled robust, high-fidelity analytics workflows.</li>
+        </ul>
+      </div>
+    </section>
 
-  <!-- BACK TO TOP BUTTON -->
-  <button id="toTop" class="backtotop fixed bottom-5 left-5 z-40 p-3 rounded-full bg-blue-600 text-white shadow-lg hover:bg-blue-700 text-xl hidden" title="Back to top">↑</button>
-
-  <footer class="py-7 text-center text-gray-400 dark:text-gray-500 text-sm opacity-90">
-    &copy; 2026 Aman Asgola &mdash; inspired by srimonchaari.eu. Dark mode, animated, and powered by Tailwind CSS.
-  </footer>
-
-  <script>
-    // Typed headline
-    document.addEventListener('DOMContentLoaded', function() {
-      if(window.Typed) {
-        new Typed('#typed', {
-          strings: [
-            'AI/ML & Data Engineer 👨‍💻',
-            'Solving Problems at Scale.',
-            'Python & Azure | NLP | FastAPI',
-            'Transformers · ETL · Databricks'
-          ],
-          typeSpeed: 36,
-          backSpeed: 23,
-          smartBackspace: true,
-          backDelay: 1700,
-          loop: true
-        });
-      } else {
-        document.getElementById('typed').innerText = 'AI/ML & Data Engineer 👨‍💻';
-      }
-    });
-
-    // Fade-in on scroll
-    function fadeInOnScroll() {
-      document.querySelectorAll('.fade-in').forEach((el) => {
-        const rect = el.getBoundingClientRect();
-        if(rect.top < window.innerHeight - 48) {
-          el.classList.add('visible');
-        }
-      });
-    }
-    window.addEventListener('DOMContentLoaded', fadeInOnScroll);
-    window.addEventListener('scroll', fadeInOnScroll);
-
-    // Dark Mode Logic
-    function setTheme(theme) {
-      document.documentElement.classList.toggle('dark', theme === 'dark');
-      document.documentElement.setAttribute('data-theme', theme);
-      localStorage.setItem('theme', theme);
-      document.getElementById('themeIcon').textContent = theme === 'dark' ? '☀️' : '🌙';
-    }
-    document.getElementById('darkToggle').onclick = function() {
-      const current = document.documentElement.getAttribute('data-theme');
-      setTheme(current === 'dark' ? 'light' : 'dark');
-    };
-    // Auto-theme on load
-    (function() {
-      const userPref = localStorage.getItem('theme');
-      const systemPref = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-      setTheme(userPref || systemPref);
-    })();
-
-    // Back to top button
-    const toTopBtn = document.getElementById('toTop');
-    window.addEventListener('scroll', () => {
-      if(window.scrollY > 300) {
-        toTopBtn.classList.remove('hidden');
-      } else {
-        toTopBtn.classList.add('hidden');
-      }
-    });
-    toTopBtn.onclick = () => window.scrollTo({top:0, left:0, behavior:'smooth'});
-
-  </script>
+    <section id="contact" class="section fadein">
+      <h2>Contact</h2>
+      <ul class="contact-list">
+        <li><b>Email:</b> <a href="mailto:aman.code001@gmail.com">aman.code001@gmail.com</a></li>
+        <li><b>Phone:</b> +49 176 45626923</li>
+        <li><b>Location:</b> Berlin, Germany</li>
+        <li><b>GitHub:</b> <a href="https://github.com/AmanAsgola" target="_blank">AmanAsgola</a></li>
+        <li><b>LinkedIn:</b> <a href="https://linkedin.com/in/amanasgola" target="_blank">in/amanasgola</a></li>
+        <li><b>LeetCode:</b> <a href="https://leetcode.com/u/Demonfist/" target="_blank">Demonfist</a></li>
+        <li><b>Resume:</b> <a href="Aman_Asgola_Resume.pdf" target="_blank">PDF Download</a></li>
+      </ul>
+    </section>
+    <footer>
+      &copy; 2026 Aman Asgola — inspired by srimonchaari.eu
+    </footer>
+  </main>
+  <script src="main.js"></script>
 </body>
 </html>
