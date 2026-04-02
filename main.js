@@ -1,4 +1,26 @@
 // Typed headline
+// Interactive About Section Typing Animation
+const aboutRoleTyped = document.getElementById('about-role-typed');
+const aboutRoleStrings = [
+  "AI/ML and Data Engineer",
+  "Real-Time ETL Architect",
+  "NLP Solutionist",
+  "Problem Solver 💡"
+];
+let about_i = 0, aboutChar = 0, aboutFwd = true;
+function aboutType(){
+  let str = aboutRoleStrings[about_i].substring(0, aboutChar);
+  if(aboutRoleTyped) aboutRoleTyped.textContent = str;
+  if(aboutFwd) {
+    if(aboutChar < aboutRoleStrings[about_i].length) {aboutChar++;setTimeout(aboutType,54);}
+    else {aboutFwd = false; setTimeout(aboutType, 1300);}
+  } else {
+    if(aboutChar > 0) {aboutChar--;setTimeout(aboutType,34);}
+    else {aboutFwd = true; about_i=(about_i+1)%aboutRoleStrings.length; setTimeout(aboutType,250);}
+  }
+}
+if(aboutRoleTyped) aboutType();
+
 const headlineTyped = document.getElementById('headline-typed');
 const headlineStrings = [
   "AI/ML & Data Engineer 👨‍💻",
