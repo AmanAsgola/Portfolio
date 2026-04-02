@@ -3,31 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Aman Asgola's Portfolio">
-    <meta name="keywords" content="Aman Asgola, portfolio, technology, innovation">
-    <meta name="author" content="Aman Asgola">
     <title>Aman Asgola - Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>Aman Asgola</h1>
-        <p>Student passionate about technology, learning, and innovation.</p>
+        <nav class="navbar">
+            <h1>Aman Asgola</h1>
+            <div>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#experience">Experience</a>
+                <a href="#contact">Contact</a>
+                <a class="button" href="Aman_Asgola_Resume.pdf" target="_blank">Resume</a>
+            </div>
+        </nav>
     </header>
-    <section id="companies">
-        <h2>Companies</h2>
-        <ul>
-            <li><img src="path_to_google_logo" alt="Google Logo"> Google</li>
-            <li><img src="path_to_microsoft_logo" alt="Microsoft Logo"> Microsoft</li>
-            <li><img src="path_to_amazon_logo" alt="Amazon Logo"> Amazon</li>
-            <li><img src="path_to_apple_logo" alt="Apple Logo"> Apple</li>
-            <li><img src="path_to_meta_logo" alt="Meta Logo"> Meta</li>
-        </ul>
-    </section>
+    <main class="container">
+        <section id="about" class="section">
+            <h2>About Me</h2>
+            <p>Results-driven AI/ML and Data Engineer with a strong foundation in building scalable data architectures and high-performance machine learning systems. Currently pursuing an M.Sc. in Artificial Intelligence at Brandenburg University of Technology, I bring professional experience in architecting ETL pipelines that handle over 1TB of data daily and optimizing real-time processing latency.
+            <br>My expertise spans the end-to-end data lifecycle—from designing modular validation layers and automated monitoring systems to fine-tuning Transformer-based models for complex NLP tasks. I am a dedicated problem solver, frequently honing algorithmic skills on LeetCode (<a href="https://leetcode.com/u/Demonfist/">Demonfist</a>), passionate about bridging robust data engineering and predictive analytics to drive measurable business impact.</p>
+        </section>
+        <section id="skills" class="section card">
+            <h2>Technologies & Frameworks</h2>
+            <div><span class="badge">Python</span> <span class="badge">FastAPI</span> <span class="badge">PyTorch</span> <span class="badge">MLflow</span> <span class="badge">Docker</span> <span class="badge">Git</span> <span class="badge">SQL</span> <span class="badge">Microsoft Azure</span> <span class="badge">REST APIs</span></div>
+            <h3>Machine Learning</h3>
+            <div><span class="badge">Transformers</span> <span class="badge">NLP</span> <span class="badge">Model Evaluation</span> <span class="badge">Anomaly Detection</span></div>
+            <h3>Data Engineering</h3>
+            <div><span class="badge">PySpark</span> <span class="badge">Databricks</span> <span class="badge">ETL/ELT</span> <span class="badge">Data Modeling</span></div>
+            <h3>Data Processing</h3>
+            <div><span class="badge">Data Preprocessing</span> <span class="badge">Feature Engineering</span> <span class="badge">ETL Pipelines</span> <span class="badge">Data Modeling</span></div>
+        </section>
+        <section id="projects" class="section card">
+            <h2>Projects</h2>
+            <div>
+                <h3>Transformer-Based Linguistic Classifier</h3>
+                <p>Built a transformer-based NLP classifier using fine-tuned BERT to distinguish monologic vs dialogic political discourse, improving accuracy by 15% over baseline models.<br>
+                Created a gold-standard annotated dataset by cleaning, anonymising, and removing contextual noise, enabling the model to learn true linguistic patterns.<br>
+                Applied a sliding-window training approach and optimised performance through hyperparameter tuning, ensuring robust and reproducible results.<br>
+                <a href="https://ie-seminar.web.app/index.html" target="_blank">Demo/Publication</a></p>
+            </div>
+            <div>
+                <h3>Delivery Order Price Calculator API</h3>
+                <p>Engineered a high-performance FastAPI backend using the Haversine formula for logistics. Enhanced scalable pricing with distance tiers and surcharges. Modular, containerized with Docker for robust, horizontal scaling.<br>
+                <a href="https://github.com/AmanAsgola/Delivery-Order-Price-Calculator-API-DOPC-" target="_blank">GitHub Repo</a></p>
+            </div>
+        </section>
+        <section id="experience" class="section card">
+            <h2>Companies Experience</h2>
+            <div>
+                <h3>Nova Telecom LLC<br><span style="font-weight:400;font-size:14px">Data Analyst Intern (Remote, USA) &ndash; 09/2025 – 10/2025</span></h3>
+                <ul>
+                    <li>Optimised vectorized NumPy operations, achieving a 25% latency reduction for real-time telecom streams.</li>
+                    <li>Architected modular validation layers, reducing manual cleanup by 20% for massive pipelines.</li>
+                    <li>Decreased production error rates using Modified Z-Score/IQR anomaly detection.</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Cognizant Technology Solutions<br><span style="font-weight:400;font-size:14px">Programmer Analyst &ndash; Pune, India</span></h3>
+                <ul>
+                    <li>Built/maintained scalable ETL pipelines on Databricks (1TB+ data daily).</li>
+                    <li>Reduced critical failures by 18% via automated Python monitoring/alerting.</li>
+                    <li>Developed rigorous SQL validation protocols, reducing troubleshooting cycles 30%.</li>
+                </ul>
+            </div>
+        </section>
+        <section id="contact" class="section card">
+            <h2>Contact</h2>
+            <ul style="list-style:none;padding-left:0;">
+                <li><b>Email:</b> <a href="mailto:aman.code001@gmail.com">aman.code001@gmail.com</a></li>
+                <li><b>Phone:</b> +49 176 45626923</li>
+                <li><b>Location:</b> Berlin, Germany</li>
+                <li><b>GitHub:</b> <a href="https://github.com/AmanAsgola" target="_blank">AmanAsgola</a></li>
+                <li><b>LinkedIn:</b> <a href="https://www.linkedin.com/in/amanasgola" target="_blank">in/amanasgola</a></li>
+                <li><b>LeetCode:</b> <a href="https://leetcode.com/u/Demonfist/" target="_blank">Demonfist</a></li>
+                <li><b>Resume:</b> <a href="Aman_Asgola_Resume.pdf" target="_blank">Download PDF</a></li>
+            </ul>
+        </section>
+    </main>
     <footer>
-        <p><a href="Aman_Asgola_Resume.pdf">Resume</a> | <a href="https://www.linkedin.com/in/amanasgola">LinkedIn</a> | <a href="https://github.com/AmanAsgola">GitHub</a> | <a href="mailto:your_email@example.com">Email</a></p>
-        <h2>Contact Me</h2>
-        <p>Feel free to reach out!</p>
+        <p style="font-size:14px;color:#888;">&copy; 2026 Aman Asgola</p>
     </footer>
 </body>
 </html>
