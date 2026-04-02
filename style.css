@@ -1,4 +1,3 @@
-/* Base & Colors */
 :root {
   --bg: #f6f7fb;
   --sidebar: #fff;
@@ -12,8 +11,6 @@
   --border: #e0e0e0;
   --shadow: 0 6px 32px rgba(50,62,70,0.08), 0 1.5px 6px rgba(50,60,100,0.05);
 }
-
-/* Dark mode */
 .dark {
   --bg: #111218;
   --sidebar: #191a23;
@@ -22,8 +19,6 @@
   --text-alt: #7e8aa5;
   --border: #282a36;
 }
-
-/* Layout */
 body {
   margin: 0;
   background: var(--bg);
@@ -253,6 +248,46 @@ footer {
   opacity:1; transform:none;
 }
 
+/* === ABOUT SECTION INTERACTIVE === */
+.about-block { margin-top:6px; }
+.about-bio { font-size:1.17em; line-height:1.7; }
+.about-bio .hi { font-size:1.18em; font-weight:700; color:var(--accent2); }
+.about-bio .pro-title {
+  display:block;
+  font-size:1.12em;
+  color:var(--accent);
+  font-weight:700;
+  margin: 7px 0 7px 0;
+  letter-spacing:0.02em;
+}
+.about-key {
+  background: linear-gradient(90deg,#e5e5fb 20%,#d0f2ff 100%);
+  border-radius:7px; padding:1.5px 7px 2px 7px; font-weight: 600;
+}
+.about-key2 {
+  color: var(--accent);
+  font-weight: 700;
+}
+.about-accent {
+  font-weight: 600;
+  color: #00b887;
+  text-shadow: 0 1.5px 4px #a8ffeb64;
+}
+.about-badges { display:flex; flex-wrap:wrap; gap:12px; margin:15px 0 7px 0; padding:0;list-style:none;}
+.badge-bounce {
+  background: linear-gradient(90deg,#edf8ff 60%,#d0f1f5);
+  border-radius: 18px;
+  color: #1991d6;
+  font-weight: 600;
+  padding: 5px 16px;
+  box-shadow: 0 2px 8px #d7eeff60;
+  font-size: 0.98em;
+  cursor: pointer;
+  transition: transform 0.22s cubic-bezier(.6,1.7,.4,.94),background 0.14s;
+}
+.badge-bounce:hover { transform: translateY(-3px) scale(1.13) rotate(-3deg); background:#b3effe; }
+.about-extra { margin:11px 0 0 0; color:var(--text-alt); font-size:0.97em;}
+
 @media (max-width:990px) {
   aside#sidebar, main {margin-left:0;max-width:100vw;}
   aside#sidebar {
@@ -315,41 +350,3 @@ footer {
   transition:background .13s;
 }
 #mobile-nav a:hover{background:rgba(51,102,204,0.12);}
-.about-block { margin-top:6px; }
-.about-bio { font-size:1.17em; line-height:1.7; }
-.about-bio .hi { font-size:1.18em; font-weight:700; color:var(--accent2); }
-.about-bio .pro-title {
-  display:block;
-  font-size:1.12em;
-  color:var(--accent);
-  font-weight:700;
-  margin: 7px 0 7px 0;
-  letter-spacing:0.02em;
-}
-.about-key {
-  background: linear-gradient(90deg,#e5e5fb 20%,#d0f2ff 100%);
-  border-radius:7px; padding:1.5px 7px 2px 7px; font-weight: 600;
-}
-.about-key2 {
-  color: var(--accent);
-  font-weight: 700;
-}
-.about-accent {
-  font-weight: 600;
-  color: #00b887;
-  text-shadow: 0 1.5px 4px #a8ffeb64;
-}
-.about-badges { display:flex; flex-wrap:wrap; gap:12px; margin:15px 0 7px 0; padding:0;list-style:none;}
-.badge-bounce {
-  background: linear-gradient(90deg,#edf8ff 60%,#d0f1f5);
-  border-radius: 18px;
-  color: #1991d6;
-  font-weight: 600;
-  padding: 5px 16px;
-  box-shadow: 0 2px 8px #d7eeff60;
-  font-size: 0.98em;
-  cursor: pointer;
-  transition: transform 0.22s cubic-bezier(.6,1.7,.4,.94),background 0.14s;
-}
-.badge-bounce:hover { transform: translateY(-3px) scale(1.13) rotate(-3deg); background:#b3effe; }
-.about-extra { margin:11px 0 0 0; color:var(--text-alt); font-size:0.97em;}
