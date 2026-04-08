@@ -104,74 +104,6 @@ backToTop?.addEventListener('click', () => {
 });
 
 // ==========================================================
-// GITHUB REPOS (auto-fetch)
-// Change GITHUB_USER below to update which repos are shown.
-// ==========================================================
-const GITHUB_USER = 'AmanAsgola';
-
-const LANG_COLORS = {
-  Python:     '#3572A5',
-  JavaScript: '#f1e05a',
-  TypeScript: '#2b7489',
-  HTML:       '#e34c26',
-  CSS:        '#563d7c',
-  Java:       '#b07219',
-  Go:         '#00ADD8',
-  Rust:       '#dea584',
-  Shell:      '#89e051',
-  Jupyter:    '#DA5B0B',
-};
-
-async function loadGitHubRepos() {
-  const grid = document.getElementById('repos-grid');
-  if (!grid) return;
-
-  try {
-    const res = await fetch(
-      `https://api.github.com/users/${GITHUB_USER}/repos?sort=updated&per_page=12`,
-      { headers: { Accept: 'application/vnd.github+json' } }
-    );
-    if (!res.ok) throw new Error(`GitHub API ${res.status}`);
-
-    const repos = await res.json();
-
-    // Drop forks and the profile-readme repo, show at most 6
-    const shown = repos
-      .filter(r => !r.fork && r.name.toLowerCase() !== GITHUB_USER.toLowerCase())
-      .slice(0, 6);
-
-    if (!shown.length) {
-      grid.innerHTML = '<p class="repos-loading">No public repositories found.</p>';
-      return;
-    }
-
-    grid.innerHTML = shown.map(repo => {
-      const desc    = repo.description ? escapeHtml(repo.description) : 'No description provided.';
-      const langDot = repo.language
-        ? `<span class="repo-lang-dot" style="background:${LANG_COLORS[repo.language] || '#8b5cf6'}"></span>${escapeHtml(repo.language)}`
-        : '';
-      return `
-        <a href="${repo.html_url}" target="_blank" rel="noopener" class="repo-card">
-          <div class="repo-name">${escapeHtml(repo.name)}</div>
-          <div class="repo-desc">${desc}</div>
-          ${repo.language ? `<div class="repo-lang">${langDot}</div>` : ''}
-        </a>`;
-    }).join('');
-
-  } catch {
-    grid.innerHTML = '<p class="repos-loading">Could not load repositories. Check your connection.</p>';
-  }
-}
-
-function escapeHtml(str) {
-  return str
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;');
-}
-
-// ==========================================================
 // INIT
 // ==========================================================
 window.addEventListener('scroll', () => {
@@ -183,5 +115,4 @@ window.addEventListener('DOMContentLoaded', () => {
   initFadeIn();
   updateActiveNav();
   updateScrollProgress();
-  loadGitHubRepos();
 });
