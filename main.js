@@ -1,7 +1,7 @@
 // ==========================================================
 // THEME TOGGLE
 // Theme is initialised before render via inline <script> in
-// <head>. This just wires up the toggle button.
+// <head> to prevent flash. This just wires up the button.
 // ==========================================================
 document.getElementById('theme-toggle')?.addEventListener('click', () => {
   const next = document.documentElement.getAttribute('data-theme') === 'dark'
@@ -17,9 +17,14 @@ function initFadeIn() {
   const elements = document.querySelectorAll('.fadein');
   const observer = new IntersectionObserver((entries, obs) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        obs.unobserve(entry.target);
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('visible');
+      obs.unobserve(entry.target);
+
+      // Animate language progress bars once visible
+      if (entry.target.classList.contains('lang-card')) {
+        const fill = entry.target.querySelector('.lang-fill');
+        if (fill) fill.style.width = fill.style.getPropertyValue('--pct') || '0%';
       }
     });
   }, { threshold: 0.08 });
@@ -68,12 +73,42 @@ mobileMenu?.addEventListener('click', e => {
 });
 
 // ==========================================================
+// BACK TO TOP + CIRCULAR SCROLL PROGRESS
+// ==========================================================
+const backToTop    = document.getElementById('back-to-top');
+const progressFill = document.querySelector('.progress-fill');
+
+// circumference = 2π × r = 2π × 17 ≈ 106.81
+const CIRCUMFERENCE = 2 * Math.PI * 17;
+
+function updateScrollProgress() {
+  const scrolled  = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const progress  = docHeight > 0 ? Math.min(scrolled / docHeight, 1) : 0;
+
+  if (progressFill) {
+    progressFill.style.strokeDashoffset = CIRCUMFERENCE * (1 - progress);
+  }
+
+  if (backToTop) {
+    if (scrolled > 320) {
+      backToTop.classList.add('visible');
+    } else {
+      backToTop.classList.remove('visible');
+    }
+  }
+}
+
+backToTop?.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// ==========================================================
 // GITHUB REPOS (auto-fetch)
-// Change GITHUB_USER below to update the repos shown.
+// Change GITHUB_USER below to update which repos are shown.
 // ==========================================================
 const GITHUB_USER = 'AmanAsgola';
 
-// Language → colour mapping (subset of GitHub's palette)
 const LANG_COLORS = {
   Python:     '#3572A5',
   JavaScript: '#f1e05a',
@@ -100,7 +135,7 @@ async function loadGitHubRepos() {
 
     const repos = await res.json();
 
-    // Drop forks and the profile-readme repo, keep at most 6
+    // Drop forks and the profile-readme repo, show at most 6
     const shown = repos
       .filter(r => !r.fork && r.name.toLowerCase() !== GITHUB_USER.toLowerCase())
       .slice(0, 6);
@@ -111,13 +146,10 @@ async function loadGitHubRepos() {
     }
 
     grid.innerHTML = shown.map(repo => {
+      const desc    = repo.description ? escapeHtml(repo.description) : 'No description provided.';
       const langDot = repo.language
-        ? `<span class="repo-lang-dot" style="background:${LANG_COLORS[repo.language] || '#8b5cf6'}"></span>${repo.language}`
+        ? `<span class="repo-lang-dot" style="background:${LANG_COLORS[repo.language] || '#8b5cf6'}"></span>${escapeHtml(repo.language)}`
         : '';
-      const desc = repo.description
-        ? escapeHtml(repo.description)
-        : 'No description provided.';
-
       return `
         <a href="${repo.html_url}" target="_blank" rel="noopener" class="repo-card">
           <div class="repo-name">${escapeHtml(repo.name)}</div>
@@ -127,7 +159,7 @@ async function loadGitHubRepos() {
     }).join('');
 
   } catch {
-    grid.innerHTML = '<p class="repos-loading">Could not load repositories &mdash; check your connection.</p>';
+    grid.innerHTML = '<p class="repos-loading">Could not load repositories. Check your connection.</p>';
   }
 }
 
@@ -142,9 +174,14 @@ function escapeHtml(str) {
 // ==========================================================
 // INIT
 // ==========================================================
-window.addEventListener('scroll', updateActiveNav, { passive: true });
+window.addEventListener('scroll', () => {
+  updateActiveNav();
+  updateScrollProgress();
+}, { passive: true });
+
 window.addEventListener('DOMContentLoaded', () => {
   initFadeIn();
   updateActiveNav();
+  updateScrollProgress();
   loadGitHubRepos();
 });
