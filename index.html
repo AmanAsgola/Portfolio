@@ -1,136 +1,429 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Aman Asgola &mdash; Portfolio</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Aman Asgola &mdash; Systems &amp; Data Engineer</title>
+  <meta name="description" content="Systems and data engineer building AI/ML infrastructure at scale. 1TB+/day ETL pipelines, BERT classifiers, zero-downtime production systems."/>
+  <!-- Anti-FOUC: apply saved theme before render -->
+  <script>
+    (function(){var t=localStorage.getItem('theme')||'dark';document.documentElement.setAttribute('data-theme',t);})();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <aside id="sidebar">
-    <div class="avatar-wrap">
-      <img src="avatar.png" alt="Aman Asgola" class="avatar" onerror="this.style.display='none'"/>
-      <h1>Aman Asgola</h1>
-      <p class="subtitle">AI/ML &amp; Data Engineer</p>
+
+  <!-- ===== FLOATING PILL NAVBAR ===== -->
+  <nav id="navbar" aria-label="Main navigation">
+    <div class="nav-pill">
+      <div class="nav-links">
+        <a href="#hero"       class="nav-link active">Home</a>
+        <a href="#about"      class="nav-link">About</a>
+        <a href="#impact"     class="nav-link">Impact</a>
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#projects"   class="nav-link">Projects</a>
+        <a href="#skills"     class="nav-link">Skills</a>
+        <a href="#education"  class="nav-link">Education</a>
+        <a href="#contact"    class="nav-link">Contact</a>
+      </div>
+      <button id="theme-toggle" aria-label="Toggle colour theme">
+        <span class="theme-icon sun">&#9788;</span>
+        <span class="theme-icon moon">&#9790;</span>
+      </button>
+      <button id="burger" aria-label="Open mobile menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
-    <nav id="main-nav">
-      <ul>
-        <li><a href="#about" class="active">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <button id="burger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </nav>
+
+  <!-- ===== MOBILE MENU ===== -->
+  <div id="mobile-menu" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <button id="close-menu" aria-label="Close menu">&#10005;</button>
+    <nav>
+      <a href="#hero">Home</a>
+      <a href="#about">About</a>
+      <a href="#impact">Impact</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+      <a href="Aman_Asgola.pdf" target="_blank" class="resume-btn" rel="noopener">Resume &#8599;</a>
     </nav>
-  </aside>
-  <div id="mobile-nav">
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#contact">Contact</a></li>
-      <li class="resume-link"><a href="Aman_Asgola_Resume.pdf" target="_blank">Resume</a></li>
-    </ul>
   </div>
+
   <main>
-    <!-- === ABOUT SECTION === -->
+
+    <!-- ===== HERO ===== -->
+    <section id="hero" class="section">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          Available for opportunities
+        </div>
+        <h1 class="hero-name">Aman Asgola</h1>
+        <p class="hero-title">Systems &amp; Data Engineer</p>
+        <p class="hero-subtitle">
+          I build AI/ML infrastructure and data pipelines that process
+          <strong>1TB+ daily</strong> &mdash; production systems, not prototypes.
+        </p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn-primary">View Work</a>
+          <a href="Aman_Asgola.pdf" target="_blank" rel="noopener" class="btn-secondary">Resume &#8599;</a>
+        </div>
+        <div class="hero-stack">
+          <span>Python</span>
+          <span>PySpark</span>
+          <span>PyTorch</span>
+          <span>Databricks</span>
+          <span>Azure</span>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="avatar-ring">
+          <img src="avatar.png" alt="Aman Asgola" class="avatar" onerror="this.style.display='none'"/>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
     <section id="about" class="section fadein">
-      <h2>About Me</h2>
-      <p class="about-lead">
-        I engineer production-grade AI/ML systems that turn raw data into decisions &mdash; from BERT-powered NLP classifiers to 1TB+/day ETL pipelines built on Databricks and Azure. Currently completing an M.Sc. in Artificial Intelligence at BTU, I bring the rigour of academic research and the discipline of production engineering to every problem I take on.
-      </p>
-    </section>
-
-    <!-- === SKILLS SECTION === -->
-    <section id="skills" class="section fadein">
-      <h2>Skills</h2>
-      <div class="bento-grid skills-grid">
-        <div class="glass-card bento-cell bento-cell--large fadein">
-          <p class="bento-label">Core Engineering</p>
-          <p class="bento-content">Python &middot; SQL &middot; PySpark &middot; REST APIs</p>
+      <div class="section-header">
+        <span class="section-label">About</span>
+        <h2 class="section-title">Engineering at the intersection of AI and scale</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>
+            I&rsquo;m a systems and data engineer who ships production ML infrastructure &mdash; not
+            Jupyter notebooks. My work spans BERT-powered NLP classifiers, 1TB+/day ETL pipelines
+            on Databricks, and containerised FastAPI services with zero production failures.
+          </p>
+          <p>
+            Currently completing an M.Sc. in Artificial Intelligence at Brandenburg University of
+            Technology, I combine academic rigour with production-engineering discipline. I don&rsquo;t
+            just build models &mdash; I build the systems that keep them running at scale.
+          </p>
         </div>
-        <div class="glass-card bento-cell bento-cell--medium fadein">
-          <p class="bento-label">ML &amp; AI</p>
-          <p class="bento-content">PyTorch &middot; Transformers &middot; BERT &middot; NLP &middot; MLflow</p>
-        </div>
-        <div class="glass-card bento-cell bento-cell--medium fadein">
-          <p class="bento-label">Data Platform</p>
-          <p class="bento-content">Databricks &middot; ETL/ELT &middot; Feature Engineering &middot; Data Modeling</p>
-        </div>
-        <div class="glass-card bento-cell bento-cell--small fadein">
-          <p class="bento-label">Infrastructure</p>
-          <p class="bento-content">Docker &middot; FastAPI &middot; Microsoft Azure &middot; Git</p>
-        </div>
-        <div class="glass-card bento-cell bento-cell--small fadein">
-          <p class="bento-label">Methods</p>
-          <p class="bento-content">Anomaly Detection &middot; Model Evaluation &middot; Hyperparameter Tuning</p>
+        <div class="about-stats glass-card">
+          <div class="about-stat">
+            <span class="stat-value">2+</span>
+            <span class="stat-label">Years Production Experience</span>
+          </div>
+          <div class="about-stat">
+            <span class="stat-value">1TB+</span>
+            <span class="stat-label">Daily Data Processed</span>
+          </div>
+          <div class="about-stat">
+            <span class="stat-value">0</span>
+            <span class="stat-label">Production Failures</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="projects" class="section fadein">
-      <h2>Projects</h2>
-      <div class="bento-grid projects-grid">
-        <article class="glass-card bento-cell bento-cell--large fadein">
-          <p class="bento-stat">+15% accuracy</p>
-          <h3>BERT Classifier</h3>
-          <p class="bento-body">Built a production-ready NLP classifier that distinguishes monologic vs. dialogic discourse with rigorous dataset curation, evaluation, and reproducibility standards.</p>
-          <a href="https://ie-seminar.web.app/index.html" target="_blank" class="btn">View Demo</a>
-        </article>
-        <article class="glass-card bento-cell bento-cell--medium fadein">
-          <p class="bento-stat">0 env failures</p>
-          <h3>DOPC API</h3>
-          <p class="bento-body">FastAPI service for delivery pricing with deterministic business logic, containerized deployment, and a production-grade reliability posture.</p>
-          <a href="https://github.com/AmanAsgola/Delivery-Order-Price-Calculator-API-DOPC-" target="_blank" class="btn">GitHub Repo</a>
-        </article>
-        <div class="glass-card bento-cell bento-cell--small bento-stat-tile fadein">
-          <p class="bento-stat">1TB+ / day</p>
-          <p class="bento-caption">ETL throughput</p>
+    <!-- ===== IMPACT ===== -->
+    <section id="impact" class="section fadein">
+      <div class="section-header">
+        <span class="section-label">Impact</span>
+        <h2 class="section-title">Numbers that matter</h2>
+      </div>
+      <div class="impact-grid">
+        <div class="impact-card glass-card fadein">
+          <div class="impact-metric">+15%</div>
+          <div class="impact-label">Model Accuracy</div>
+          <p class="impact-context">Fine-tuned BERT classifier outperforming baseline on monologic vs. dialogic discourse classification.</p>
         </div>
-        <div class="glass-card bento-cell bento-cell--small bento-stat-tile fadein">
-          <p class="bento-stat">M.Sc. AI @ BTU</p>
-          <p class="bento-caption">In progress</p>
+        <div class="impact-card glass-card fadein">
+          <div class="impact-metric">1TB+</div>
+          <div class="impact-label">Daily Throughput</div>
+          <p class="impact-context">Databricks ETL pipelines processing 1TB+ daily with automated validation and zero data loss.</p>
+        </div>
+        <div class="impact-card glass-card fadein">
+          <div class="impact-metric">0</div>
+          <div class="impact-label">Production Failures</div>
+          <p class="impact-context">Zero environment failures across containerised FastAPI deployments and ML inference pipelines.</p>
+        </div>
+        <div class="impact-card glass-card fadein">
+          <div class="impact-metric">30%</div>
+          <div class="impact-label">Downtime Reduction</div>
+          <p class="impact-context">Python-automated monitoring and SQL validation layers cut pipeline downtime by 30%.</p>
         </div>
       </div>
     </section>
 
+    <!-- ===== EXPERIENCE ===== -->
     <section id="experience" class="section fadein">
-      <h2>Experience</h2>
-      <div class="job-card glass-card fadein">
-        <h3>Cognizant Technology Solutions &mdash; Programmer Analyst <span>(Pune, India)</span></h3>
-        <ul>
-          <li>Reduced pipeline downtime by 30% and ensured zero data loss in production ML workflows, by engineering Python-automated monitoring and SQL validation layers on Databricks ETL systems processing 1TB+ daily.</li>
-          <li>Cut data quality incident resolution time by 40%, as measured by mean-time-to-detect (MTTD), by implementing structured anomaly alerting and schema-enforcement checks across all ingestion jobs.</li>
-          <li>Accelerated feature availability for downstream ML teams by 2× sprint cycles, by re-architecting ELT data models for fidelity and reusability across the analytics stack.</li>
-        </ul>
+      <div class="section-header">
+        <span class="section-label">Experience</span>
+        <h2 class="section-title">Production engineering, not prototypes</h2>
       </div>
-      <div class="job-card glass-card fadein">
-        <h3>Nova Telecom LLC &mdash; Data Analyst Intern <span>(Remote, USA)</span></h3>
-        <ul>
-          <li>Reduced pipeline execution time by 25%, as measured by end-to-end job latency, by rewriting critical data-transformation routines with vectorized NumPy operations.</li>
-          <li>Eliminated 20% of manual data-cleanup hours per week, by architecting multi-layer validation logic (schema checks, null guards, type enforcement) into the ingestion framework.</li>
-          <li>Reduced production anomaly escape rate to near-zero, by deploying automated statistical outlier detection (Z-Score + IQR) as a gating step in the data quality pipeline.</li>
-        </ul>
+      <div class="timeline">
+
+        <div class="timeline-item glass-card fadein">
+          <div class="tl-header">
+            <div class="tl-meta">
+              <h3 class="tl-role">Programmer Analyst</h3>
+              <div class="tl-company">Cognizant Technology Solutions</div>
+              <div class="tl-location">Pune, India</div>
+            </div>
+            <div class="tl-badges">
+              <span class="badge">Databricks</span>
+              <span class="badge">PySpark</span>
+              <span class="badge">Python</span>
+              <span class="badge">SQL</span>
+            </div>
+          </div>
+          <div class="tl-metrics">
+            <div class="mini-metric">
+              <span class="mini-value">30%</span>
+              <span class="mini-label">Downtime &#8595;</span>
+            </div>
+            <div class="mini-metric">
+              <span class="mini-value">40%</span>
+              <span class="mini-label">MTTD &#8595;</span>
+            </div>
+            <div class="mini-metric">
+              <span class="mini-value">2&#215;</span>
+              <span class="mini-label">Feature Velocity</span>
+            </div>
+            <div class="mini-metric">
+              <span class="mini-value">1TB+</span>
+              <span class="mini-label">Daily Throughput</span>
+            </div>
+          </div>
+          <ul class="tl-bullets">
+            <li>Engineered Python-automated monitoring and SQL validation layers on Databricks ETL systems processing 1TB+ daily &mdash; reduced pipeline downtime <strong>30%</strong>, zero data loss in production ML workflows.</li>
+            <li>Implemented structured anomaly alerting and schema-enforcement checks across all ingestion jobs &mdash; cut data quality incident resolution time (MTTD) by <strong>40%</strong>.</li>
+            <li>Re-architected ELT data models for fidelity and cross-stack reusability &mdash; accelerated feature availability for downstream ML teams by <strong>2&#215; sprint cycles</strong>.</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item glass-card fadein">
+          <div class="tl-header">
+            <div class="tl-meta">
+              <h3 class="tl-role">Data Analyst Intern</h3>
+              <div class="tl-company">Nova Telecom LLC</div>
+              <div class="tl-location">Remote, USA</div>
+            </div>
+            <div class="tl-badges">
+              <span class="badge">NumPy</span>
+              <span class="badge">Python</span>
+              <span class="badge">Statistical QA</span>
+            </div>
+          </div>
+          <div class="tl-metrics">
+            <div class="mini-metric">
+              <span class="mini-value">25%</span>
+              <span class="mini-label">Latency &#8595;</span>
+            </div>
+            <div class="mini-metric">
+              <span class="mini-value">20%</span>
+              <span class="mini-label">Manual Work &#8595;</span>
+            </div>
+            <div class="mini-metric">
+              <span class="mini-value">&#126;0</span>
+              <span class="mini-label">Anomaly Escapes</span>
+            </div>
+          </div>
+          <ul class="tl-bullets">
+            <li>Rewrote critical transformation routines with vectorised NumPy operations &mdash; reduced end-to-end pipeline execution time by <strong>25%</strong>.</li>
+            <li>Architected multi-layer validation logic (schema checks, null guards, type enforcement) into the ingestion framework &mdash; eliminated <strong>20% of manual cleanup hours</strong> per week.</li>
+            <li>Deployed Z-Score + IQR outlier detection as a gating step in the data quality pipeline &mdash; reduced production anomaly escape rate to <strong>near-zero</strong>.</li>
+          </ul>
+        </div>
+
       </div>
     </section>
 
-    <section id="contact" class="section fadein">
-      <h2>Contact</h2>
-      <ul class="contact-list">
-        <li><b>Email:</b> <a href="mailto:aman.code001@gmail.com">aman.code001@gmail.com</a></li>
-        <li><b>Phone:</b> +49 176 45626923</li>
-        <li><b>Location:</b> Berlin, Germany</li>
-        <li><b>GitHub:</b> <a href="https://github.com/AmanAsgola" target="_blank">AmanAsgola</a></li>
-        <li><b>LinkedIn:</b> <a href="https://linkedin.com/in/amanasgola" target="_blank">in/amanasgola</a></li>
-        <li><b>LeetCode:</b> <a href="https://leetcode.com/u/Demonfist/" target="_blank">Demonfist</a></li>
-      </ul>
+    <!-- ===== PROJECTS ===== -->
+    <section id="projects" class="section fadein">
+      <div class="section-header">
+        <span class="section-label">Projects</span>
+        <h2 class="section-title">Built at scale, not in notebooks</h2>
+      </div>
+
+      <div class="projects-grid">
+        <article class="project-card glass-card fadein">
+          <div class="project-header">
+            <span class="project-metric">+15% accuracy</span>
+            <a href="https://ie-seminar.web.app/index.html" target="_blank" rel="noopener" class="project-link">Demo &#8599;</a>
+          </div>
+          <h3 class="project-title">BERT Discourse Classifier</h3>
+          <p class="project-desc">
+            Fine-tuned BERT on a curated corpus to classify monologic vs. dialogic discourse.
+            Production-grade dataset curation, rigorous evaluation pipeline, and reproducible
+            model versioning &mdash; not a tutorial project.
+          </p>
+          <div class="tag-row">
+            <span class="tag">PyTorch</span>
+            <span class="tag">BERT</span>
+            <span class="tag">Transformers</span>
+            <span class="tag">NLP</span>
+            <span class="tag">MLflow</span>
+          </div>
+        </article>
+
+        <article class="project-card glass-card fadein">
+          <div class="project-header">
+            <span class="project-metric">0 env failures</span>
+            <a href="https://github.com/AmanAsgola/Delivery-Order-Price-Calculator-API-DOPC-" target="_blank" rel="noopener" class="project-link">GitHub &#8599;</a>
+          </div>
+          <h3 class="project-title">DOPC Pricing API</h3>
+          <p class="project-desc">
+            Production FastAPI service for deterministic delivery-order pricing.
+            Containerised with Docker, schema-validated at every layer, deployed with a
+            reliability-first architecture. Zero environment failures.
+          </p>
+          <div class="tag-row">
+            <span class="tag">FastAPI</span>
+            <span class="tag">Docker</span>
+            <span class="tag">Python</span>
+            <span class="tag">REST API</span>
+          </div>
+        </article>
+      </div>
+
+      <!-- GitHub repos — auto-fetched via API in main.js -->
+      <div class="github-section">
+        <div class="github-section-header">
+          <span class="section-label">GitHub</span>
+          <h3 class="github-section-title">More from the repo</h3>
+        </div>
+        <div id="repos-grid" class="repos-grid">
+          <div class="repos-loading">Fetching repositories&hellip;</div>
+        </div>
+      </div>
     </section>
+
+    <!-- ===== SKILLS ===== -->
+    <section id="skills" class="section fadein">
+      <div class="section-header">
+        <span class="section-label">Skills</span>
+        <h2 class="section-title">The stack that ships</h2>
+      </div>
+      <div class="skills-grid">
+
+        <div class="skill-card glass-card fadein">
+          <h3 class="skill-group">Core Engineering</h3>
+          <div class="tag-row">
+            <span class="tag">Python</span>
+            <span class="tag">SQL</span>
+            <span class="tag">PySpark</span>
+            <span class="tag">REST APIs</span>
+          </div>
+        </div>
+
+        <div class="skill-card glass-card fadein">
+          <h3 class="skill-group">ML &amp; AI</h3>
+          <div class="tag-row">
+            <span class="tag">PyTorch</span>
+            <span class="tag">Transformers</span>
+            <span class="tag">BERT</span>
+            <span class="tag">NLP</span>
+            <span class="tag">MLflow</span>
+          </div>
+        </div>
+
+        <div class="skill-card glass-card fadein">
+          <h3 class="skill-group">Data Platform</h3>
+          <div class="tag-row">
+            <span class="tag">Databricks</span>
+            <span class="tag">ETL/ELT</span>
+            <span class="tag">Feature Engineering</span>
+            <span class="tag">Data Modeling</span>
+          </div>
+        </div>
+
+        <div class="skill-card glass-card fadein">
+          <h3 class="skill-group">Infrastructure</h3>
+          <div class="tag-row">
+            <span class="tag">Docker</span>
+            <span class="tag">FastAPI</span>
+            <span class="tag">Azure</span>
+            <span class="tag">Git</span>
+          </div>
+        </div>
+
+        <div class="skill-card glass-card fadein">
+          <h3 class="skill-group">Methods</h3>
+          <div class="tag-row">
+            <span class="tag">Anomaly Detection</span>
+            <span class="tag">Model Evaluation</span>
+            <span class="tag">Hyperparameter Tuning</span>
+            <span class="tag">Statistical QA</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== EDUCATION ===== -->
+    <section id="education" class="section fadein">
+      <div class="section-header">
+        <span class="section-label">Education</span>
+        <h2 class="section-title">Academic foundation</h2>
+      </div>
+      <div class="education-grid">
+        <div class="edu-card glass-card fadein">
+          <div class="edu-degree">M.Sc. Artificial Intelligence</div>
+          <div class="edu-school">Brandenburg University of Technology (BTU)</div>
+          <div class="edu-location">Cottbus, Germany</div>
+          <span class="badge edu-badge">In Progress</span>
+          <p class="edu-detail">Research focus on production NLP systems and scalable ML infrastructure.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section id="contact" class="section fadein">
+      <div class="section-header">
+        <span class="section-label">Contact</span>
+        <h2 class="section-title">Let&rsquo;s build something serious</h2>
+      </div>
+      <div class="contact-wrap">
+        <div class="contact-card glass-card fadein">
+          <p class="contact-cta">
+            Open to senior engineering roles in data infrastructure, ML systems, and AI platform engineering.
+          </p>
+          <div class="contact-links">
+            <a href="mailto:aman.code001@gmail.com" class="contact-item">
+              <span class="contact-icon">&#9993;</span>
+              <span>aman.code001@gmail.com</span>
+            </a>
+            <a href="https://github.com/AmanAsgola" target="_blank" rel="noopener" class="contact-item">
+              <span class="contact-icon contact-icon--text">GH</span>
+              <span>github.com/AmanAsgola</span>
+            </a>
+            <a href="https://linkedin.com/in/amanasgola" target="_blank" rel="noopener" class="contact-item">
+              <span class="contact-icon contact-icon--text">in</span>
+              <span>linkedin.com/in/amanasgola</span>
+            </a>
+            <a href="https://leetcode.com/u/Demonfist/" target="_blank" rel="noopener" class="contact-item">
+              <span class="contact-icon contact-icon--text">LC</span>
+              <span>leetcode.com/Demonfist</span>
+            </a>
+            <div class="contact-item contact-item--static">
+              <span class="contact-icon">&#9679;</span>
+              <span>Berlin, Germany &nbsp;&middot;&nbsp; +49 176 45626923</span>
+            </div>
+          </div>
+          <div class="contact-footer">
+            <a href="Aman_Asgola.pdf" target="_blank" rel="noopener" class="btn-primary">Download Resume &#8599;</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <footer>
-      &copy; 2026 Aman Asgola
+      <p>&copy; 2026 Aman Asgola &nbsp;&middot;&nbsp; Berlin, Germany</p>
     </footer>
+
   </main>
+
   <script src="main.js"></script>
 </body>
 </html>
