@@ -244,3 +244,44 @@ jupyter notebook analysis.ipynb
 4. Feature engineering (medals per capita, event trends, etc.)
 5. Statistical visualisation export
 ```
+
+---
+
+## Template 4 — Movie Recommendation System
+
+```markdown
+# Movie Recommendation System
+
+Recommendation engine that suggests movies based on user taste and title-level similarity.
+
+## Impact
+- Personalized top-N movie recommendations for faster content discovery
+- Reusable recommendation pipeline for experimentation and tuning
+- Clear offline evaluation workflow for iterative model improvements
+
+## Stack
+| Layer          | Technology             |
+|----------------|------------------------|
+| Processing     | Python, Pandas         |
+| Recommendation | Scikit-learn           |
+| Text Features  | TF-IDF / Cosine Similarity |
+| Interface      | Notebook / Script      |
+
+## How to Run
+
+```bash
+git clone https://github.com/AmanAsgola/Movie-Recommendation-System
+cd Movie-Recommendation-System
+pip install -r requirements.txt
+
+# Run recommendation workflow
+python main.py
+```
+
+## Pipeline Steps
+1. Ingest and clean movie metadata
+2. Engineer content features (genres, keywords, overviews)
+3. Build similarity matrix
+4. Rank and return top-N recommendations
+5. Evaluate and iterate on recommendation quality
+```
