@@ -4,7 +4,7 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Aman Asgola &mdash; AI &amp; Data Engineer</title>
-  <meta name="description" content="AI and data engineer building ML pipelines at scale. BERT classifiers, 1TB+/day ETL, FastAPI services."/>
+  <meta name="description" content="AI and data engineer building ML pipelines at scale. 1TB+/day ETL, FastAPI services."/>
   <!-- Anti-FOUC: apply saved theme before render -->
   <script>
     (function(){var t=localStorage.getItem('theme')||'dark';document.documentElement.setAttribute('data-theme',t);})();
@@ -109,7 +109,7 @@
         <div class="about-text">
           <p>
             I&rsquo;m an AI and data engineer building distributed data systems and ML
-            infrastructure at scale. My work spans BERT-powered NLP classifiers, 1TB+/day
+            infrastructure at scale. My work spans production NLP and vision systems, 1TB+/day
             ETL pipelines on Apache Spark/Databricks, and containerised FastAPI services
             with zero production failures.
           </p>
@@ -144,9 +144,9 @@
       </div>
       <div class="impact-grid">
         <div class="impact-card glass-card fadein">
-          <div class="impact-metric">+15%</div>
-          <div class="impact-label">Model Accuracy</div>
-          <p class="impact-context">Fine-tuned BERT classifier outperforming baseline on topic-shift detection in political discourse.</p>
+          <div class="impact-metric">~2x</div>
+          <div class="impact-label">Pricing API Speedup</div>
+          <p class="impact-context">Parallelised upstream venue lookups with <code>httpx</code> and <code>asyncio.gather</code> in Fairfare, roughly halving pricing latency.</p>
         </div>
         <div class="impact-card glass-card fadein">
           <div class="impact-metric">1TB+</div>
@@ -297,7 +297,7 @@
             <div class="tl-badges">
               <span class="badge">NLP Annotation</span>
               <span class="badge">NER</span>
-              <span class="badge">BERT</span>
+              <span class="badge">Data Quality</span>
               <span class="badge">XAI Research</span>
             </div>
           </div>
@@ -322,7 +322,7 @@
           <ul class="tl-bullets">
             <li>Curated three gold-standard NLP datasets (Speech-vs-Interview, StanceSentences, TopicContinuity) from thousands of web-scraped political transcripts using a custom annotationNLP tool, supporting a doctoral Explainable AI (XAI) research initiative on passage-level political statement extraction.</li>
             <li>Cleaned and anonymized 250+ unstructured transcripts by removing timestamps and crowd reactions, applying NER-based redaction of speaker names, and defining passage boundaries via coreferentiality, lexical cohesion, and transition-marker analysis.</li>
-            <li>Contributed gold-standard training data for fine-tuning BERT&rsquo;s Next Sentence Prediction (TopicContinuityBERT), helping models reach <strong>98.1%</strong> accuracy (text genre), <strong>99.5%</strong> accuracy (stance), and <strong>91.4%</strong> accuracy / <strong>0.960 AUC-ROC</strong> (topic continuity).</li>
+            <li>Contributed gold-standard training data for topic continuity modeling, helping models reach <strong>98.1%</strong> accuracy (text genre), <strong>99.5%</strong> accuracy (stance), and <strong>91.4%</strong> accuracy / <strong>0.960 AUC-ROC</strong> (topic continuity).</li>
             <li>Ran rigorous error analysis and cross-validation on a 900-example gold-standard set with multi-round peer review, achieving Inter-Annotator Agreement (Fleiss&rsquo; Kappa) scores of up to <strong>0.956</strong>.</li>
           </ul>
         </div>
@@ -341,26 +341,30 @@
 
         <article class="project-card glass-card fadein">
           <div class="project-header">
-            <span class="project-metric">Sub-ms latency &middot; 100% accuracy</span>
+            <span class="project-metric">Async pricing engine &middot; Offline deterministic tests</span>
             <a href="https://github.com/AmanAsgola/Delivery-Order-Price-Calculator-API-DOPC-" target="_blank" rel="noopener" class="project-link">GitHub &#8599;</a>
           </div>
-          <h3 class="project-title">DOPC Pricing API</h3>
+          <h3 class="project-title">Fairfare (Delivery Order Price) &mdash; Pricing API</h3>
           <div class="project-pal">
             <div class="pal-item">
               <span class="pal-label">Problem</span>
-              <span class="pal-text">Sub-millisecond pricing and distance logic required for real-time logistics operations.</span>
+              <span class="pal-text">Build an interview-grade backend that reliably computes cart value, delivery fee, and small-order surcharge from live venue data.</span>
             </div>
             <div class="pal-item">
               <span class="pal-label">Approach</span>
-              <span class="pal-text">FastAPI backend using the Haversine formula for geodesic calculations; Docker containerisation for reliable deployment.</span>
+              <span class="pal-text">Rebuilt as an async FastAPI service (98.8% Python) using Haversine distance math, parallel <code>httpx</code> venue fetches with <code>asyncio.gather</code>, and short-TTL caching via <code>cachetools.TTLCache</code>.</span>
             </div>
             <div class="pal-item">
               <span class="pal-label">Impact</span>
-              <span class="pal-text">Sub-ms deterministic calculations with 100% pricing accuracy. Zero environment failures across all deployments.</span>
+              <span class="pal-text">Added explicit domain errors mapped to 404/422/500/502, shipped fully offline deterministic tests with <code>respx</code>, and Dockerized deployment for portable runtime parity.</span>
             </div>
           </div>
           <div class="tag-row">
             <span class="tag">FastAPI</span>
+            <span class="tag">asyncio</span>
+            <span class="tag">httpx</span>
+            <span class="tag">cachetools</span>
+            <span class="tag">respx</span>
             <span class="tag">Docker</span>
             <span class="tag">Python</span>
             <span class="tag">REST API</span>
@@ -484,7 +488,7 @@
           <div class="tag-row">
             <span class="tag">PyTorch</span>
             <span class="tag">Transformers</span>
-            <span class="tag">BERT</span>
+            <span class="tag">XAI</span>
             <span class="tag">NLP</span>
             <span class="tag">MLflow</span>
             <span class="tag">scikit-learn</span>
