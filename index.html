@@ -370,30 +370,30 @@
 
         <article class="project-card glass-card fadein">
           <div class="project-header">
-            <span class="project-metric">+15% accuracy over baseline</span>
-            <a href="https://ie-seminar.web.app/paper-b-bert-training.html" target="_blank" rel="noopener" class="project-link">Demo &#8599;</a>
+            <span class="project-metric">97.6% accuracy &middot; 98.2% precision</span>
+            <a href="https://github.com/AmanAsgola/ShuffViT-DFER" target="_blank" rel="noopener" class="project-link">GitHub &#8599;</a>
           </div>
-          <h3 class="project-title">BERT Discourse Classifier</h3>
+          <h3 class="project-title">ShuffViT-DFER &mdash; Lightweight Temporal Facial Expression Recognition</h3>
           <div class="project-pal">
             <div class="pal-item">
               <span class="pal-label">Problem</span>
-              <span class="pal-text">Detecting topic shifts in political discourse datasets to enable automated analysis at scale.</span>
+              <span class="pal-text">Enable real-time-capable fatigue/stress detection from 224&times;224 MTCNN-cropped driver frames under constrained model size.</span>
             </div>
             <div class="pal-item">
               <span class="pal-label">Approach</span>
-              <span class="pal-text">Fine-tuned BERT with sliding-window training strategy and rigorous dataset curation pipeline.</span>
+              <span class="pal-text">Built a dual-stream ShuffleNet V2 + EfficientViT-M2 classifier with 5-frame temporal modeling via bidirectional 2-layer GRU and depthwise-separable Conv1D, trained with class-weighted loss and evaluated using 10-fold stratified cross-validation on KMU-FED.</span>
             </div>
             <div class="pal-item">
               <span class="pal-label">Impact</span>
-              <span class="pal-text">15% accuracy gain over baseline models with reproducible evaluation framework.</span>
+              <span class="pal-text">Top Conv1D model reached 97.6% accuracy and 98.2% precision with only 10.14M parameters, while frame-consistency analysis (93.98% GRU, 92.75% Conv1D) confirmed genuine temporal learning and cross-platform portability.</span>
             </div>
           </div>
           <div class="tag-row">
             <span class="tag">PyTorch</span>
-            <span class="tag">BERT</span>
-            <span class="tag">Transformers</span>
-            <span class="tag">NLP</span>
-            <span class="tag">MLflow</span>
+            <span class="tag">ShuffleNet V2</span>
+            <span class="tag">EfficientViT-M2</span>
+            <span class="tag">GRU</span>
+            <span class="tag">Conv1D</span>
           </div>
         </article>
 
